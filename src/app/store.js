@@ -1,9 +1,9 @@
-import { configureStore } from "@reduxjs/toolkit";
-import yourReducer from "../features/slices/slice1"; 
+import { configureStore } from '@reduxjs/toolkit';
+import dataReducer from '../features/slices/slice1'; // Import the slice reducer
 
 const store = configureStore({
   reducer: {
-    yourState: yourReducer, // Add your reducers here
+    data: dataReducer, // Add your reducers here
   },
 });
 
