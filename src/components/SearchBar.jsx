@@ -6,8 +6,8 @@ export default function SearchBar({handleSearch,searchTerm}) {
     <input
       type="text"
       placeholder="Search..."
-      value={searchTerm} // Controlled input bound to searchTerm state
-      onChange={handleSearch} // Trigger handleSearch on input change
+      value={searchTerm} 
+      onChange={handleSearch}
     />
   </div>
   )

@@ -3,7 +3,7 @@ import ItemDetails from "./components/ItemDetails";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Table from "./page/Table";
 function App() {
-  // Initialize dispatch function from Redux to dispatch actions
+  // Initialize app Router
   const appRouter = createBrowserRouter([
     {
       path: "/item/:id",

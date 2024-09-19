@@ -7,7 +7,7 @@ import thunk from 'redux-thunk';
 import ItemDetails from './ItemDetails';
 import { fetchData } from '../features/items/itemSlice';
 
-// Create a mock store
+
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
 
@@ -22,7 +22,6 @@ describe('ItemDetails', () => {
       }
     });
 
-    // Mock fetchData
     jest.spyOn(fetchData, 'fetchData').mockImplementation(() => () => Promise.resolve());
   });
 
@@ -35,7 +34,7 @@ describe('ItemDetails', () => {
       </Provider>
     );
 
-    // Check for loading text
+   
     expect(screen.getByText('Loading....')).toBeInTheDocument();
   });
 });
