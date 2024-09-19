@@ -1,3 +1,5 @@
+
+
 * {
   margin: 0;
   padding: 0;
@@ -50,7 +52,8 @@ table {
   flex-grow: 1;
 }
 
-th, td {
+th,
+td {
   padding: 15px;
   text-align: left;
   border-bottom: 1px solid #555;
@@ -65,7 +68,7 @@ tr:hover {
 }
 
 tr:nth-child(even) {
-  background-color: #3e3e3e; /* Zebra striping for rows */
+  background-color: #3e3e3e; 
 }
 
 caption {

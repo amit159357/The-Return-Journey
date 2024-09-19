@@ -5,7 +5,6 @@ export const fetchData = createAsyncThunk(
   "data/fetchData",
   async ({ url, page, limit }, thunkAPI) => {
     try {
-
       const response = await axios.get(
         `${url}/products/getProducts?page=${page}&limit=${limit}`
       );

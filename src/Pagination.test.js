@@ -1,26 +1,49 @@
+import React, { useState } from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
-import Pagination from "./components/Pagination";
+import Pagination from "./components/Pagination";  // Adjust the path if necessary
 
-test("renders pagination and handles button clicks", () => {
+const TestPagination = ({ totalPages }) => {
+  const [currentPage, setCurrentPage] = useState(1);
 
-  const handlePagination = jest.fn();
+  const handlePagination = (direction) => {
+    if (direction === "forward" && currentPage < totalPages) {
+      setCurrentPage((prev) => prev + 1);
+    } else if (direction === "backward" && currentPage > 1) {
+      setCurrentPage((prev) => prev - 1);
+    }
+  };
 
-  render(
+  return (
     <Pagination
       handlePagination={handlePagination}
-      totalPages={10}
-      currentPage={2}
+      totalPages={totalPages}
+      currentPage={currentPage}
     />
   );
+};
+
+test("checks if current page updates when buttons are clicked", () => {
+  render(<TestPagination totalPages={5} />);
 
 
-  expect(screen.getByText("Page 2 of 10")).toBeInTheDocument();
+  expect(screen.getByText("1")).toBeInTheDocument();
+
+  const nextButton = screen.getByRole("button", { name: /next/i });
+  const previousButton = screen.getByRole("button", { name: /previous/i });
 
 
-  fireEvent.click(screen.getByText("Next"));
-  expect(handlePagination).toHaveBeenCalledWith("forward");
+  fireEvent.click(nextButton);
+  expect(screen.getByText("2")).toBeInTheDocument();
 
 
-  fireEvent.click(screen.getByText("Previous"));
-  expect(handlePagination).toHaveBeenCalledWith("backward");
+  fireEvent.click(nextButton);
+  expect(screen.getByText("3")).toBeInTheDocument();
+
+
+  fireEvent.click(previousButton);
+  expect(screen.getByText("2")).toBeInTheDocument();
+
+
+  fireEvent.click(previousButton);
+  expect(screen.getByText("1")).toBeInTheDocument();
 });

@@ -62,36 +62,51 @@ function Table() {
   console.log("Memoization Debug:", renderCount.current);
 
   return (
-    <div className="container">
+    <div className="container mx-auto px-4">
       <Toaster />
-      <button onClick={() => checkMemoization()} className="dummy-button">
+
+      <div className="text-center my-6">
+        <h1 className="text-3xl font-bold text-gray-800">Sample Items Table</h1>
+        <p className="text-gray-600 mt-2">
+          Browse through the items below. Use the search bar to quickly find
+          what you need.
+        </p>
+      </div>
+
+      <button
+        onClick={() => checkMemoization()}
+        className="bg-blue-500 text-white px-4 py-2 mb-4 rounded"
+      >
         CLICK ME
       </button>
 
-      <SearchBar handleSearch={handleSearch} searchTerm={searchTerm} />
-      <table>
-        <caption>Sample Data Table</caption>
+      <div className="flex justify-center mb-6">
+        <SearchBar
+          handleSearch={handleSearch}
+          searchTerm={searchTerm}
+          className="w-full max-w-md p-2 border border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+      </div>
+
+      <table className="min-w-full bg-white border border-gray-300 shadow-lg rounded">
         <thead>
-          <tr>
-            <th>S No.</th>
-            <th>Title</th>
+          <tr className="bg-gray-200">
+            <th className="py-3 px-6 border-b text-left font-semibold text-gray-700">
+              S.NO:
+            </th>
+            <th className="py-3 px-6 border-b text-left font-semibold text-gray-700">
+              Title
+            </th>
           </tr>
         </thead>
-
         {status === "loading" ? (
-          <td colSpan="2">Loading...</td>
-        ) : status === "failed" ? (
-          <h1>
-            Error....
-            <span
-              onClick={() => window.location.reload()}
-              style={{ cursor: "pointer", color: "blue" }}
-            >
-              Please Refresh
-            </span>
-          </h1>
+          <div className="flex justify-center py-10">
+            <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-blue-500"></div>
+          </div>
         ) : (
-          <ItemList data={filteredData} page={currentPage} />
+          <tbody>
+            <ItemList data={filteredData} page={currentPage} />
+          </tbody>
         )}
       </table>
 

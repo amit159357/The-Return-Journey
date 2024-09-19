@@ -1,9 +1,10 @@
-import "./App.css";
+// import "./App.css";
+import React from 'react'
+
 import ItemDetails from "./components/ItemDetails";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Table from "./page/Table";
 function App() {
-  // Initialize app Router
   const appRouter = createBrowserRouter([
     {
       path: "/item/:id",
@@ -13,6 +14,7 @@ function App() {
       path: "/",
       element: <Table />,
     },
+
   ]);
   return (
     <div>
@@ -22,3 +24,5 @@ function App() {
 }
 
 export default App;
+
+

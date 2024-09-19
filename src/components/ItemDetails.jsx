@@ -11,29 +11,37 @@ function ItemDetails() {
   const apiUrl = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
-    dispatch(
-      fetchData({ url: apiUrl, page: 1, limit: +Infinity }) 
-    );
-  }, []);
-
+    dispatch(fetchData({ url: apiUrl, page: 1, limit: +Infinity }));
+  }, [dispatch, apiUrl]);
 
   const { id } = useParams();
-
 
   const item = useMemo(() => {
     return data?.find((item) => item._id === id);
   }, [data, id]);
 
   return (
-    <div>
+    <table className="min-w-full bg-white border border-gray-300 shadow-lg rounded">
+      <thead>
+        <tr className="bg-gray-200">
+          <th className="py-3 px-6 border-b text-left font-semibold text-gray-700">
+            S.NO:
+          </th>
+          <th className="py-3 px-6 border-b text-left font-semibold text-gray-700">
+            Title
+          </th>
+        </tr>
+      </thead>
       {status === "loading" ? (
-        <h1>Loading....</h1>
-      ) : item ? (
-        <ItemList data={[item]} />
+        <div className="flex justify-center py-10">
+          <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-blue-500"></div>
+        </div>
       ) : (
-        <p>Item not found</p>
+        <tbody>
+          <ItemList data={[item]} />
+        </tbody>
       )}
-    </div>
+    </table>
   );
 }
 
