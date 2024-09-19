@@ -42,6 +42,8 @@ User:
   - Navigate through paginated item lists with forward and backward controls.
   - Automatically adjusts visibility based on the search input.
   
+- **Testing:**
+  - Test cases are written to evaluate the web service.
 
 - **Dynamic Routing:**
   - Utilize dynamic routing to view detailed pages for individual items.
@@ -87,6 +89,13 @@ Install backend dependencies
 ```bash
 cd backend
 npm install
+```
+
+
+Run test cases 
+```bash
+cd frontend
+npm run test
 ```
 
 
