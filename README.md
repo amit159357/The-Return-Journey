@@ -2,9 +2,11 @@
 
  **Item Management Application** is a dynamic web application developed using React, Redux Toolkit, and React Router. This project harnesses the power of Redux Toolkit for robust state management and React Router for smooth navigation, providing a clean and interactive user experience. The application features a comprehensive item listing with pagination and search functionalities, along with detailed views for individual items. Designed to be intuitive and responsive, it ensures a seamless browsing and management experience for users.
 
-![ecommerce-homepage](https://github.com/RishiBakshii/mern-ecommerce/blob/main/frontend/src/assets/images/front.png?raw=true)
-<!-- ![ecommerce-banner](https://github.com/RishiBakshii/mern-ecommerce/blob/main/frontend/src/assets/images/banner4.jpg?raw=true) -->
-![ecommerce-banner](https://github.com/RishiBakshii/mern-ecommerce/blob/main/frontend/src/assets/images/banner3.jpg?raw=true)
+![homepage](https://github.com/RishiBakshii/mern-ecommerce/blob/main/frontend/src/assets/images/front.png?raw=true)
+
+![Search](https://github.com/RishiBakshii/mern-ecommerce/blob/main/frontend/src/assets/images/banner3.jpg?raw=true)
+
+![single item](https://github.com/RishiBakshii/mern-ecommerce/blob/main/frontend/src/assets/images/banner3.jpg?raw=true)
 
 
 # **Features**
