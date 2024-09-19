@@ -1,75 +1,175 @@
-# Getting Started with Create React App
+## RTK Project: This project is a React application that leverages Redux Toolkit for state management and React Router for navigation. The application is designed to display and manage a list of items with features like pagination, search, and detailed item views.
 
-Overview
-This React application utilizes Redux Toolkit [(RTK)] for state management and asynchronous data fetching. The app features a searchable item list with pagination and leverages memoization for performance optimization.
+ **Item Management Application** is a dynamic web application developed using React, Redux Toolkit, and React Router. This project harnesses the power of Redux Toolkit for robust state management and React Router for smooth navigation, providing a clean and interactive user experience. The application features a comprehensive item listing with pagination and search functionalities, along with detailed views for individual items. Designed to be intuitive and responsive, it ensures a seamless browsing and management experience for users.
 
-This project was bootstrapped with [Create React App]( https://github.com/amit159357/The-Return-Journey.git (fetch)).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![ecommerce-homepage](https://github.com/RishiBakshii/mern-ecommerce/blob/main/frontend/src/assets/images/front.png?raw=true)
+<!-- ![ecommerce-banner](https://github.com/RishiBakshii/mern-ecommerce/blob/main/frontend/src/assets/images/banner4.jpg?raw=true) -->
+![ecommerce-banner](https://github.com/RishiBakshii/mern-ecommerce/blob/main/frontend/src/assets/images/banner3.jpg?raw=true)
 
 
+# **Features**
+
+### **User:**
+- **Product Reviews:**
+  - Write, edit, and delete reviews.
+  - Instant updates on ratings and star percentages.
+  
+- **Wishlist:**
+  - Add, remove, and annotate products with personalized notes.
+  
+- **Order Management:**
+  - Create new orders and view order history.
+  
+- **Profile Management:**
+  - Manage email, username, and multiple addresses.
+  
+- **Shopping Cart:**
+  - Add products, adjust quantities, and view subtotals.
+
+### **Admin:**
+- **Product Management:**
+  - Add, edit, delete, and soft-delete products.
+  - Manage product attributes like name and stock.
+  
+- **Order Management:**
+  - View and update order details and status.
+
+### **Security & User Experience:**
+- **Secure Authentication:**
+  - Login, signup, OTP verification, password reset, and logout.
+
+- **Intuitive Interface:**
+  - Powered by Material UI for a visually appealing and user-friendly experience.
+
+### **Scalability:**
+- **Built for Growth:**
+  - Scalable architecture to handle increasing user demands.
 
 
+# **Project Setup**
+
+### Prerequisites
+- Node.js ( version v21.1.0 or later )
+- MongoDB installed and running locally
+
+### Clone the project
+
+```bash
+  git clone https://github.com/RishiBakshii/mern-ecommerce.git
+```
+
+### Navigate to the project directory
+
+```bash
+  cd mern-ecommerce
+```
+
+### Install dependencies for frontend and backend separately
+**Tip:** To efficiently install dependencies for both frontend and backend simultaneously, use split terminals.
+
+Install frontend dependencies
+```bash
+cd frontend
+npm install
+```
+
+Install backend dependencies
+
+```bash
+cd backend
+npm install
+```
 
 
+### Environment Variables
+**Backend**
+- Create a `.env` file in the `backend` directory.
+- Add the following variables with appropriate values
+```bash
+# Database connection string
+MONGO_URI="mongodb://localhost:27017/your-database-name"
 
-### `Features`
+# Frontend URL (adjust if needed)
+ORIGIN="http://localhost:3000"
 
-Searchable Item List: Allows users to search items by title.
-Pagination: Supports pagination for navigating through large datasets.
-Memoization: Utilizes React.memo for optimizing re-rendering of list items.
-Redux Toolkit Integration: Manages state and data fetching using Redux Toolkit and Thunks.
+# Email credentials for sending password resets and OTPs
+EMAIL="your-email@example.com"
+PASSWORD="your-email-password"
 
- ## Prerequisites
+# Token and cookie expiration settings
+LOGIN_TOKEN_EXPIRATION="30d"  # Days
+OTP_EXPIRATION_TIME="120000"  # Milliseconds
+PASSWORD_RESET_TOKEN_EXPIRATION="2m"  # Minutes
+COOKIE_EXPIRATION_DAYS="30"    # Days
 
-Node.js (>= 14.x)
-npm (>= 6.x)
+# Secret key for jwt security
+SECRET_KEY="your-secret-key"
 
-## Installation
-Clone the repository:
-git clone https://github.com/amit159357/The-Return-Journey.git
+# Environment (production/development)
+PRODUCTION="false" # Initially set to false for development
+```
 
-## Learn More
+**Frontend**
+- Create a `.env` file in the `frontend` directory
+- Add the following variable:
+```bash
+# Backend URL (adjust if needed)
+REACT_APP_BASE_URL="http://localhost:8000" 
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+**Important**
+- Replace all placeholders (e.g., your_database_name, your_email) with your actual values.
+- Exclude the `.env` file from version control to protect sensitive information.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Data seeding
+- **Get started quickly with pre-populated data**: Populate your database with sample users, products, reviews, and carts, enabling you to test functionalities without manual data entry.
 
-### Code Splitting
+**Steps**:
+- Open a new terminal window.
+- Navigate to the `backend` directory: `cd backend`
+- Run the seeding script: `npm run seed` ( This script executes the `seed.js` file within the `seed` subdirectory equivalent to running `node seed/seed.js` )
+### Running Development Servers
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+**Important:**
 
-### Analyzing the Bundle Size
+- **Separate terminals**: Run the commands in separate terminal windows or use `split terminal` to avoid conflicts.
+- **Nodemon required**: Ensure you have `nodemon` installed globally to run the backend development servers using `npm run dev`. You can install it globally using `npm install -g nodemon`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+#### Start the backend server
+- Navigate to the `backend` directory: `cd backend`
+- Start the server: `npm run dev` (or npm start)
+- You should see a message indicating the server is running, usually on port 8000.
+     
+#### Start the frontend server:
+- Navigate to the `frontend` directory: `cd frontend`
+- Start the server: `npm start`
+- You should see a message indicating the server is running, usually on port 3000.
 
-### Making a Progressive Web App
+### Login with demo account (Optional)
+- After successfully seeding the database, you can now explore the application's functionalities using pre-populated sample data.
+- here are the `login credentials`
+```bash
+  email: demo@gmail.com
+  pass: helloWorld@123
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- **Please Note**: While the demo account provides a convenient way to explore many features, it has some limitations:
+    - **Password Reset and OTP Verification**: Due to security reasons, the demo account uses a non-real email address. Therefore, password reset and OTP verification functionalities are not available for this account.
 
-### Advanced Configuration
+    **What this means**:
+    - You cannot request a password reset or receive verification codes on the demo email address.
+    - To test password reset and OTP verification flows, you need to create a genuine account with a valid email address.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+    **What to do?**
+    - If you're primarily interested in exploring other functionalities like wishlist, cart, and order history, the demo account is sufficient.
+    - To test password reset and OTP verification, create a personal account with a valid email address.
+### Accessing the Application
+Once both servers are running, you can access them at the following URL's:
+- Backend: http://localhost:8000
+- Frontend: http://localhost:3000
 
-### Deployment
+## **Bonus**
+Don't forget to star the repository and share your feedback!✨
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Authors
+- [@RishiBakshii](https://github.com/RishiBakshii)

@@ -4,12 +4,12 @@ import { Link, useNavigate } from "react-router-dom";
 // import { useNavigate, useLocation } from "react-router-dom";
 
 // ItemList component receives 'data' as a prop and renders a list of items
-const ItemList = ({ data,page }) => {
-    const navigate = useNavigate();
+const ItemList = ({ data, page = 1 }) => {
+  const navigate = useNavigate();
   //   const location = useLocation();
 
   // Debug log to check if the component re-renders (useful when using memo)
-  console.log("Check render inside ItemList",page);
+  console.log("Check render inside ItemList", page);
 
   const handleRowClick = (id) => {
     navigate(`/item/${id}`);
@@ -23,10 +23,15 @@ const ItemList = ({ data,page }) => {
         // Map through the data array and render each item in a table row
         data?.map((el, i) => (
           <>
-          <tr key={i} onClick={() => handleRowClick(el?._id)} style={{ cursor: 'pointer' }}>
-            <td>{5*(page-1) + i + 1}</td> {/* Display serial number (1-based index) */}
-            <td>{el.title}</td> {/* Display item title */}
-          </tr>
+            <tr
+              key={i}
+              onClick={() => handleRowClick(el?._id)}
+              style={{ cursor: "pointer" }}
+            >
+              <td>{5 * (page - 1) + i + 1}</td>{" "}
+              {/* Display serial number (1-based index) */}
+              <td>{el.title}</td> {/* Display item title */}
+            </tr>
           </>
         ))
       )}
