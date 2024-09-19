@@ -24,7 +24,7 @@ function ItemDetails() {
   const item = useMemo(() => {
     return data?.find((item) => item._id === id);
   }, [data, id]);
-  console.log(id, data);
+
   return (
     <div>
       {status === "loading" ? (

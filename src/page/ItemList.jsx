@@ -9,7 +9,7 @@ const ItemList = ({ data, page = 1 }) => {
   //   const location = useLocation();
 
   // Debug log to check if the component re-renders (useful when using memo)
-  console.log("Check render inside ItemList", page);
+  console.log("Check render inside ItemList");
 
   const handleRowClick = (id) => {
     navigate(`/item/${id}`);
